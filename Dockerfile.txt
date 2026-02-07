@@ -1,0 +1,16 @@
+FROM node:18-slim
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y curl unzip && rm -rf /var/lib/apt/lists/*
+
+COPY . .
+
+RUN mkdir -p v2ray && \
+    curl -L -o v2ray/v2ray.zip https://github.com/v2ray/v2ray-core/releases/latest/download/v2ray-linux-64.zip && \
+    unzip v2ray/v2ray.zip -d v2ray && \
+    chmod +x v2ray/v2ray
+
+EXPOSE 443
+
+CMD ["node", "index.js"]
