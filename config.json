@@ -1,0 +1,35 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "port": 5000,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "e6f9d7c0-1234-4321-8765-abcdef123456",
+            "level": 0
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "/graphql",
+          "headers": {
+            "Host": "www.jio.com"
+          }
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    }
+  ]
+}
